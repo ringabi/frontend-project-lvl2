@@ -1,0 +1,37 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "![Actions Status](/workflows/hexlet-check/badge.svg)",
+  "keywords": [
+    "hexlet student",
+    "generate difference",
+    "training project"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ringabi/frontend-project-lvl2.git"
+  },
+  "author": "Rinat Gabidullin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ringabi/frontend-project-lvl2/issues"
+  },
+  "homepage": "https://github.com/ringabi/frontend-project-lvl2#readme",
+  "type": "module",
+  "bin": {
+    "gendiff": "src/bin/gendiff.js"
+  },
+  "devDependencies": {
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
+  },
+  "dependencies": {
+    "commander": "^6.2.0",
+    "lodash": "^4.17.20"
+  }
+}
