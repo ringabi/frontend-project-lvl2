@@ -8,17 +8,19 @@ const genDiff = (filepath1, filepath2) => {
   const objAfter = JSON.parse(jsonAfter);
   const keysOfObjBefore = Object.keys(objBefore);
   const keysOfObjAfter = Object.keys(objAfter);
-  
+
   const cb = (acc, key) => {
     if (_.has(objAfter, key)) {
       if (objBefore[key] === objAfter[key]) {
         acc.push(`    ${key}: ${objBefore[key]}`);
-      } else { acc.push(`  - ${key}: ${objBefore[key]}`);
-	acc.push(`  + ${key}: ${objAfter[key]}`);}
+      } else {
+        acc.push(`  - ${key}: ${objBefore[key]}`);
+        acc.push(`  + ${key}: ${objAfter[key]}`);
+      }
     } else { acc.push(`  - ${key}: ${objBefore[key]}`); }
-      return acc;
+    return acc;
   };
-  
+
   const cb1 = (acc, key) => {
     if (!_.has(objBefore, key)) {
       acc.push(`  + ${key}: ${objAfter[key]}`);
@@ -27,10 +29,7 @@ const genDiff = (filepath1, filepath2) => {
 
   const diff = keysOfObjBefore.reduce(cb, []);
   const diff1 = keysOfObjAfter.reduce(cb1, []);
-  const result = [...diff, ...diff1];
-  console.log('{');
-  console.log(result.join('\n'));
-  console.log('}');
+  return ['{', ...diff, ...diff1, '}\n'].join('\n');
 };
 
 export default genDiff;
