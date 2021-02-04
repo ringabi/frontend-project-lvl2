@@ -28,13 +28,10 @@ jobs:
       - name: npm install
         run: |
           make install
-      
-        env:
-          CI: true
 
-          #      - name: Run tests
-          #        run: |
-          #make test
+      - name: Run tests
+        run: |
+          npm test
       
       - name: Run linter
         run: |
